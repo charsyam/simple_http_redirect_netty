@@ -48,7 +48,7 @@ public class HttpRedirectHandler extends SimpleChannelInboundHandler<FullHttpReq
             StringUtils.startsWith(path, "https://") == false ) {
             path = "http://" + path;
         }
-        sendRedirect(ctx, path);
+        sendRedirect(ctx, UrlUtils.encodedUrl(path));
     }
 
     @Override
